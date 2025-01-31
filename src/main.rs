@@ -1,7 +1,9 @@
 use actix_web::{web::Data, App, HttpServer};
 use std::io;
 
+mod file_session;
 mod inertia;
+mod middlewares;
 mod vite;
 
 #[actix_web::main]
