@@ -12,7 +12,8 @@
   "license": "ISC",
   "description": "Trying to fix Inertia.js Deferred component for React.",
   "dependencies": {
-    "react": "19.0.0"
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@types/node": "22.12.0",
