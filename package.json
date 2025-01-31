@@ -1,0 +1,28 @@
+{
+  "name": "inertia-deferred-props",
+  "version": "1.0.0",
+  "main": "www/app.tsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Trying to fix Inertia.js Deferred component for React.",
+  "dependencies": {
+    "react": "19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.12.0",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "vite": "6.0.11",
+    "@inertiajs/react": "2.0.3",
+    "laravel-vite-plugin": "1.2.0",
+    "@vitejs/plugin-react": "4.3.4",
+    "tailwindcss": "4.0.1",
+    "ts-node": "10.9.2"
+  }
+}
