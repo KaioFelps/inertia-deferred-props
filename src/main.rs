@@ -5,12 +5,12 @@ use actix_web::{
     App, HttpServer,
 };
 use file_session::FileSessionStore;
-use helpers::{get_env_mode, RustEnv};
-use inertia_rust::actix::InertiaMiddleware;
+use helpers::{get_client_template_engine, get_env_mode, ClientTemplateEngine, RustEnv};
+use inertia_rust::{actix::InertiaMiddleware, hashmap, InertiaProp};
 use middlewares::{
     garbage_collector::GarbageCollectorMiddleware, inertia_reflasher::ReflashTemporarySession,
 };
-use std::io;
+use std::{io, sync::Arc};
 
 mod entities;
 mod file_session;
@@ -22,6 +22,8 @@ mod vite;
 
 #[actix_web::main]
 async fn main() -> io::Result<()> {
+    dotenvy::dotenv().ok();
+
     let vite = vite::initialize_vite().await;
     let inertia = inertia::initialize_inertia(vite).await?;
     let inertia = Data::new(inertia);
@@ -35,7 +37,16 @@ async fn main() -> io::Result<()> {
         App::new()
             .app_data(inertia.clone())
             .wrap(GarbageCollectorMiddleware)
-            .wrap(InertiaMiddleware::new())
+            .wrap(InertiaMiddleware::new().with_shared_props(Arc::new(|_| {
+                let client = get_client_template_engine();
+
+                Box::pin(async move {
+                    hashmap![
+                        "client" => InertiaProp::always(client.to_string()),
+                        "using_react" => InertiaProp::always(client == ClientTemplateEngine::React)
+                    ]
+                })
+            })))
             .wrap(ReflashTemporarySession)
             .wrap(
                 SessionMiddleware::builder(storage.clone(), key.clone())
