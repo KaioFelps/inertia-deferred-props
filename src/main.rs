@@ -12,10 +12,12 @@ use middlewares::{
 };
 use std::io;
 
+mod entities;
 mod file_session;
 mod helpers;
 mod inertia;
 mod middlewares;
+mod routes;
 mod vite;
 
 #[actix_web::main]
@@ -44,6 +46,7 @@ async fn main() -> io::Result<()> {
                     .cookie_secure(get_env_mode() == RustEnv::Production)
                     .build(),
             )
+            .configure(routes::register)
     })
     .bind(("0.0.0.0", 3000))?
     .run()
