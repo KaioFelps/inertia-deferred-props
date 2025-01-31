@@ -8,4 +8,20 @@
             font-medium text-purple-600 hover:text-purple-700 active:text-purple-800
             transition-all duration-100 underline decoration-2 decoration-wavy decoration-blue-700
     }
+
+    h1 {
+        @apply font-black text-8xl mb-8 text-amber-500
+    }
+}
+
+@layer components {
+    .main-container {
+        @apply w-[calc(100%_-_48px)] mx-auto text-xl;
+    }
+
+    .btn {
+        @apply
+            px-8 py-4 rounded-sm bg-amber-600 text-4xl font-black text-white hover:bg-amber-500 active:bg-amber-700
+            active:cursor-pointer
+    }
 }
