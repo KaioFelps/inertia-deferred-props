@@ -1,11 +1,14 @@
 use inertia_rust::{template_resolvers::ViteHBSTemplateResolver, InertiaConfig};
 use inertia_rust::{Inertia, InertiaVersion};
-use std::{env, io};
+use std::io;
 use vite_rust::Vite;
+
+use crate::helpers::{get_env_mode, RustEnv};
 
 pub async fn initialize_inertia(vite: Vite) -> io::Result<Inertia> {
     let version = vite.get_hash().unwrap_or("development-assets").to_string();
-    let dev_mode = env::var("RUST_ENV").unwrap_or("production".into()) != "production";
+    let dev_mode = get_env_mode() != RustEnv::Production;
+
     let template_resolver = ViteHBSTemplateResolver::new(vite, "www/root.hbs", dev_mode)
         .map_err(|err| io::Error::new(io::ErrorKind::InvalidInput, err.get_cause()))?;
 
