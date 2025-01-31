@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer base {
+    a,
+    [role="anchor"]
+    {
+        @apply
+            font-medium text-purple-600 hover:text-purple-700 active:text-purple-800
+            transition-all duration-100 underline decoration-2 decoration-wavy decoration-blue-700
+    }
+}
