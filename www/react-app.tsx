@@ -11,6 +11,8 @@ createInertiaApp({
     title: (title: string) => title ?? "Inertia Rust",
     
     resolve: (pageName: string) => {
+        console.log("Hello from React Inertia App!");
+
         const pages = import.meta.glob("./pages/**/*.tsx", { eager: true });
         const page = pages[`./pages/${ pageName }.tsx`] as ComponentPage;
 
