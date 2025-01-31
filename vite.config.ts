@@ -7,9 +7,9 @@ const config = defineConfig({
         react(),
         laravel({
             input: ["www/app.tsx"],
-            buildDirectory: "public/build"
-        })
-    ]
+            buildDirectory: "build",
+        }),
+    ],
 });
 
 export default config;
