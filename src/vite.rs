@@ -2,7 +2,7 @@ use vite_rust::{Vite, ViteConfig};
 
 pub async fn initialize_vite() -> Vite {
     match Vite::new(ViteConfig::new(
-        "public/assets/manifest.json",
+        "public/build/manifest.json",
         vec!["www/app.tsx"],
     ))
     .await
