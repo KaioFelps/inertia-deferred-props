@@ -15,6 +15,7 @@ use tokio::{
 const SESSIONS_DIR: &str = "storage/sessions";
 const SESSIONS_EXP_KEY: &str = "__expires_at__";
 
+#[derive(Clone)]
 pub struct FileSessionStore<'a> {
     sessions_directory: &'a str,
 }
