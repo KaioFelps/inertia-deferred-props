@@ -16,3 +16,4 @@ rand = "0.9"
 inertia-rust = { version = "2", features = ["actix", "vite-hbs-template-resolver"] }
 vite-rust = { version = "0.2" }
 serde = "1"
+dotenvy = "0.15.7"
