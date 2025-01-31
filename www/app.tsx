@@ -8,7 +8,7 @@ createInertiaApp({
     
     resolve: (pageName: string) => {
         const pages = import.meta.glob("./pages/**/*.tsx", { eager: true });
-        const page = pages[`./page/${ pageName }.tsx`];
+        const page = pages[`./pages/${ pageName }.tsx`];
         return page;
     },
     
