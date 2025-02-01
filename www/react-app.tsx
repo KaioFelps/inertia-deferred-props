@@ -3,7 +3,7 @@ import "./app.css";
 import { createInertiaApp } from "@inertiajs/react";
 import { createRoot } from "react-dom/client";
 import { DefaultLayout } from "./layouts/default";
-import { JSX } from "react";
+import { type JSX } from "react";
 
 createInertiaApp({
     progress: { includeCSS: true, color: "var(--color-purple-500)" },
