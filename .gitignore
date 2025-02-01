@@ -2,7 +2,7 @@
 node_modules
 public/bundle
 public/build
-public/hot
 dist
 storage/
 .env
+/hot
