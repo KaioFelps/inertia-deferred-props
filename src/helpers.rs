@@ -12,6 +12,7 @@ pub fn get_client_template_engine() -> ClientTemplateEngine {
     let client = env::var("CLIENT").unwrap_or("react".into());
     match client.as_str() {
         "svelte" => ClientTemplateEngine::Svelte,
+        "vue" => ClientTemplateEngine::Vue,
         _ => ClientTemplateEngine::React,
     }
 }
@@ -26,6 +27,7 @@ pub enum RustEnv {
 pub enum ClientTemplateEngine {
     React,
     Svelte,
+    Vue,
 }
 
 impl Display for ClientTemplateEngine {
@@ -36,6 +38,7 @@ impl Display for ClientTemplateEngine {
             match self {
                 ClientTemplateEngine::React => "react",
                 ClientTemplateEngine::Svelte => "svelte",
+                ClientTemplateEngine::Vue => "vue",
             }
         )
     }

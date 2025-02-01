@@ -6,6 +6,7 @@ pub async fn initialize_vite() -> Vite {
     let entrypoint = match get_client_template_engine() {
         ClientTemplateEngine::React => "www/react-app.tsx",
         ClientTemplateEngine::Svelte => "www/svelte-app.ts",
+        ClientTemplateEngine::Vue => "www/vue-app.ts",
     };
 
     match Vite::new(
