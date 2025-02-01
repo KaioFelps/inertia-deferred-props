@@ -7,7 +7,7 @@
   type User = {
     id: number;
     name: string;
-    };
+  };
 
   const { users }: { users: User[] } = $props();
 
@@ -28,14 +28,14 @@
     {/snippet}
 
     <div class="flex flex-col gap-1">
-        <!-- if it was props.users?.map instead, it wouldn't throw the error and the fallback would be shown again -->
-        {#each users as user}
-          <UserCard name={user.name} />
-        {/each}
+      <!-- if it was props.users?.map instead, it wouldn't throw the error and the fallback would be shown again -->
+      {#each users as user}
+        <UserCard name={user.name} />
+      {/each}
     </div>
   </CustomDeferred>
 
-  <button onClick={handleTriggerPartialReload} class="mt-8 btn">
+  <button onclick={handleTriggerPartialReload} class="mt-8 btn">
     Trigger a partial reload
   </button>
 </main>
