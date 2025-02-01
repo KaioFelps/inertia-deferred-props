@@ -14,8 +14,7 @@ This is enough to trigger the error, as stated in [this issue](https://github.co
 At "/custom", you can click the button and check that nothing actually happen, but the expected behavior
 from the `Deferred` component.
 
-This seems to only happen on React. It won't happen in the Svelte client-side adapter. I haven't tested the Vue
-client-side adapter.
+This seems to only happen on React. It won't happen in the Svelte client-side adapter nor the Vue one.
 
 ## Running
 To run this project, you'll need to have both Rust and Cargo installed. Then, follow the steps:
@@ -36,8 +35,9 @@ Start the application in another terminal:
 cargo run
 ```
 
-## Switching between React and Svelte
+## Switching between React, Vue and Svelte
 Change the `CLIENT` key from your environment variables to `svelte` to enable Svelte template engine.
-Remove it or change to `react` to use React as template engine.
+Set it to `vue` and restart to enable Vue template engine. Remove it or change to `react` to use React
+as the template engine.
 
-After changing it, restart the Actix Web server to see the changes.
+Restart the Actix Web server everytime you change this key, so that it recompiles the root template.
