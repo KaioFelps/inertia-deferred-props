@@ -16,11 +16,13 @@
     "dotenv": "^16.4.7",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "svelte": "5.19.6"
+    "svelte": "5.19.6",
+    "vue": "^3.5.13"
   },
   "devDependencies": {
     "@inertiajs/react": "^2.0.3",
     "@inertiajs/svelte": "^2.0.3",
+    "@inertiajs/vue3": "^2.0.3",
     "@sveltejs/vite-plugin-svelte": "5.0.3",
     "@tailwindcss/vite": "^4.0.2",
     "@tsconfig/svelte": "^5.0.4",
@@ -28,6 +30,7 @@
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
     "@vitejs/plugin-react": "4.3.4",
+    "@vitejs/plugin-vue": "5.2.1",
     "laravel-vite-plugin": "1.2.0",
     "prettier-plugin-svelte": "^3.3.3",
     "svelte-check": "^4.1.4",
