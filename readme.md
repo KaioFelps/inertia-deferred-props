@@ -1,20 +1,20 @@
 # Testing Deferred Props
 
-Until the version being test here (2.0.3), Inertia has a problem with its `Deferred` component (at least, for React).
+Until the version being tested here (2.0.3), There is a problem with inertiajs/react `Deferred` component.
 
-This repo contains a custom `Deferred` component that fixes this issue by:
+This repo contains a custom `Deferred` which fixes this issue by:
 1. memoizing `keys` (to avoid many changes to `loaded` state);
 2. setting `loaded` back to `false` everytime a navigation starts.
 
 ## The Problem
-The "/built-in" route is built using the Inertia built-in `Deferred` component (from the React package).
-By clicking on the button, it will perform a post request to a ping pong route, which only returns back.
+The "/built-in" route uses the Inertia built-in `Deferred` component.
+By clicking on the button, it will perform a post request to a ping pong route (which only returns back).
 This is enough to trigger the error, as stated in [this issue](https://github.com/inertiajs/inertia/issues/2221).
 
-At "/custom", you can click the button and check that nothing actually happen, but the expected behavior
-from the `Deferred` component.
+At "/custom", by clicking the button and nothing but the expected behavior from `Deferred` happens.
 
-This seems to only happen on React. It won't happen in the Svelte client-side adapter nor the Vue one.
+It looks like it only happens with the React Adapter. Svelte and Vue `Deferred` components seem to work just
+as expected.
 
 ## Running
 To run this project, you'll need to have both Rust and Cargo installed. Then, follow the steps:
@@ -26,7 +26,7 @@ cp .env.example .env
 
 In one terminal, type:
 ```bash
-# start the vite dev server
+# install node modules and start the vite dev server
 npm i && npm run dev
 ```
 
