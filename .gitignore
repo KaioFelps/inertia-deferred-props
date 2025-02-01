@@ -5,4 +5,4 @@ public/build
 dist
 storage/
 .env
-/hot
+**/hot
