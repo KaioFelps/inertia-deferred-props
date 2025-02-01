@@ -8,10 +8,9 @@ pub async fn initialize_vite() -> Vite {
         ClientTemplateEngine::Svelte => "www/svelte-app.ts",
     };
 
-    match Vite::new(ViteConfig::new(
-        "public/build/manifest.json",
-        vec![entrypoint],
-    ))
+    match Vite::new(
+        ViteConfig::new("public/build/manifest.json", vec![entrypoint]).set_prefix("build"),
+    )
     .await
     {
         Err(err) => panic!("{err}"),

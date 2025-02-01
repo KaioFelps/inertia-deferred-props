@@ -58,6 +58,7 @@ async fn main() -> io::Result<()> {
                     .build(),
             )
             .configure(routes::register)
+            .service(actix_files::Files::new("/", "./public/").prefer_utf8(true))
     })
     .bind(("0.0.0.0", 3000))?
     .run()
